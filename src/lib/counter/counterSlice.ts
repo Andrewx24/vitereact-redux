@@ -1,11 +1,16 @@
-import { createSlice } from "@reduxjs/toolkit";
+import { createSlice, PayloadAction } from "@reduxjs/toolkit";
+
+// Get the initial value from localStorage, or default to 0
+const initialValue = localStorage.getItem('counterValue')
+  ? Number(localStorage.getItem('counterValue'))
+  : 0;
 
 interface CounterState {
   value: number;
 }
 
 const initialState: CounterState = {
-  value: 0,
+  value: initialValue, // Initialize from localStorage
 };
 
 const counterSlice = createSlice({
@@ -18,9 +23,14 @@ const counterSlice = createSlice({
     decrement: (state) => {
       state.value -= 1;
     },
+    incrementByAmount: (state, action: PayloadAction<number>) => {
+      state.value += action.payload;
+    },
   },
 });
 
-export const { increment, decrement } = counterSlice.actions;
+// Export actions
+export const { increment, decrement, incrementByAmount } = counterSlice.actions;
 
+// Export reducer
 export default counterSlice.reducer;

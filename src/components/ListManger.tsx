@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import  { useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { addItem } from '../lib/counter/listSlice'; // Import addItem action
 import { RootState } from '../lib/store'; // Import RootState
