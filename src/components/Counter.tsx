@@ -13,7 +13,7 @@ const Counter = () => {
   }, [value]);
 
   return (
-    <div className="flex flex-col items-center justify-center min-h-screen bg-gray-100">
+    <div className="flex flex-col items-center justify-center  bg-gray-100">
       <h1 className="text-4xl font-bold text-gray-800 mb-4">Counter: {value}</h1> {/* Display the current counter value */}
       <div className="space-x-4">
         <button
